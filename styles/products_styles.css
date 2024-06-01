@@ -1,0 +1,23 @@
+@import url('primary_styles.css');
+
+.productos_div{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin: 30px;
+}
+
+.producto {
+    background-color: azure;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 15px;
+    width: 300px;
+    transition: box-shadow 0.3s ease-in;
+}
+
+.producto:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}

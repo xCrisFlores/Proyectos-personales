@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/primary_styles.css">
+    <title>Inicio de sesión - Changarrito Web</title>
+</head>
+<body class="primary_body">
+
+    <header>
+        <p class="primary_title">Changarrito Web</p>
+    </header>
+
+    <main class="primary_box">
+        <p class="primary_form_lbl">Inicio de sesión</p>
+        <form class="form_login" id="loginForm" action="backend/login.php" method="post">
+            <div class="form_group">
+                <label class = "primary_lbl" for="loginCorreo">Correo</label>
+                <input class = "primary_inp" type="text" id="loginCorreo" name="correo" required>
+            </div>
+            <div class="form_group">
+                <label class = "primary_lbl" for="loginContraseña">Contraseña</label>
+                <input class = "primary_inp" type="password" id="loginContraseña" name="contraseña" required>
+            </div>
+            <button class = "primary_btn" type="submit" id="loginSubmit">Iniciar sesión</button>
+        </form>
+        <p class="register_text">¿No tienes una cuenta?</p>
+        <a href="screens/registro.html">Regístrate aquí</a>
+    </main>
+    
+</body>
+</html>

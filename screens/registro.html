@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../styles/primary_styles.css">
+        <title>Registro en Changarrito Web</title>
+    </head>
+    <body class="primary_body">
+
+        <header>
+            <p class="primary_title">Changarrito Web</p>
+        </header>
+
+        <main class="primary_box">
+            <h2 class="primary_form_lbl">Registro</h2>
+            <form id="registroForm" action="../backend/altaUsuario.php" method="post">
+
+                <h3 class="primary_lbl">Nombre</h3>
+                <input class="primary_inp" type="text" name="nombre" id="nombre" required>
+
+                <h3 class="primary_lbl">Apellidos</h3>
+                <input class="primary_inp" type="text" name="apellidos" id="apellidos" required>
+
+                <h3 class="primary_lbl">Numero de telefono</h3>
+                <input class="primary_inp" type="text" name="telefono" id="telefono" required>
+
+                <h3 class="primary_lbl">Correo</h3>
+                <input class="primary_inp" type="text" name="correo" id="correo" required>
+
+                <h3 class="primary_lbl">Contraseña</h3>
+                <input class="primary_inp" type="password" name="password" id="password" required>
+
+                <h3 class="primary_lbl">Confirmar contraseña</h3>
+                <input class="primary_inp" type="password" id="contraseña2" required>
+
+                <button class="primary_btn" type="submit" id="submit1">Registrar</button>
+
+            </form>
+
+        </main>
+
+        <button class='return_btn' onclick='goback()' id='return'>Regresar</button>
+
+        <script>
+            document.getElementById("registroForm").addEventListener("submit", function(event) {
+                var nombre = document.getElementByn("nombre").value;
+                var apellidos = document.getElementById("apellidos").value;
+                var telefono = document.getElementById("telefono").value;
+                var correo = document.getElementById("correo").value;
+                var contraseña = document.getElementById("password").value;
+                var contraseña2 = document.getElementById("contraseña2").value;
+
+                if (nombre === "" || apellidos === "" || telefono === "" || correo === "" || contraseña === "" || contraseña2 === "") {
+                    alert("Todos los campos son obligatorios.");
+                    event.preventDefault();
+                } else if (contraseña !== contraseña2) {
+                    alert("Las contraseñas no coinciden.");
+                    event.preventDefault();
+                }
+            });
+
+            function goback(){
+                window.location.href = '../index.html'; 
+            }
+        </script>
+    </body>
+</html>
