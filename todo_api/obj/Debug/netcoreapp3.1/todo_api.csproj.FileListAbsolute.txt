@@ -1,0 +1,6 @@
+C:\Users\PC\Downloads\TODO_APP\todo_api\obj\Debug\netcoreapp3.1\todo_api.csproj.AssemblyReference.cache
+C:\Users\PC\Downloads\TODO_APP\todo_api\obj\Debug\netcoreapp3.1\todo_api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\Downloads\TODO_APP\todo_api\obj\Debug\netcoreapp3.1\todo_api.AssemblyInfoInputs.cache
+C:\Users\PC\Downloads\TODO_APP\todo_api\obj\Debug\netcoreapp3.1\todo_api.AssemblyInfo.cs
+C:\Users\PC\Downloads\TODO_APP\todo_api\obj\Debug\netcoreapp3.1\todo_api.csproj.CoreCompileInputs.cache
+C:\Users\PC\Downloads\TODO_APP\todo_api\obj\Debug\netcoreapp3.1\todo_api.MvcApplicationPartsAssemblyInfo.cache
