@@ -7,12 +7,12 @@ Este proyecto es una aplicación web simple que consiste en una API desarrollada
 Para clonar este repositorio a tu máquina local, utiliza el siguiente comando:
 
 ```bash
-git clone https://github.com/tu-usuario/todo-app.git
+git clone https://github.com/xCrisFlores/Prueba_tecnica
 ```
 
 ## Crear la base de datos
 
-Antes de preparar la apliaion se debe tener la base de datos en mariaDB puedes ejecutar el comando tasks.sql en tu CLI o bien puedes copiarlo de aqui:
+Antes de preparar la aplicacion se debe tener la base de datos en mariaDB, puedes ejecutar el comando tasks.sql en tu CLI o bien puedes copiarlo de aqui:
 
 ```bash
 CREATE DATABASE IF NOT EXISTS tasks;
