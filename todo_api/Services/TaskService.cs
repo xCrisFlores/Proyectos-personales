@@ -31,22 +31,20 @@ namespace todo_api.Services
             return task.Id;
         }
 
-        public async Task<int> Update(TaskDataModel task)
+        public async Task Update(TaskDataModel task)
         {
             _context.Tasks.Update(task);
-            return await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
 
-
-        public async Task<int> Delete(int id)
+        public async Task Delete(int id)
         {
             var task = await _context.Tasks.FindAsync(id);
             if (task != null)
             {
                 _context.Tasks.Remove(task);
-                return await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
             }
-            return 0; 
         }
     }
 }
