@@ -32,6 +32,20 @@ namespace todo_api.Controllers
             }
         }
 
+        [HttpPost("backup/{id}")]
+       public async Task<IActionResult> BackupTask(int id)
+        {
+            try
+            {
+                await _taskService.BackupTask(id);
+                return Ok(new { message = "Task restored successfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
         [HttpGet("{id}", Name = "GetTask")]
         public async Task<ActionResult<TaskDataModel>> GetTaskById(int id)
         {

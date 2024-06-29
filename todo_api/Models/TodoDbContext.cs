@@ -21,5 +21,6 @@ namespace todo_api.Models
         }
 
         public DbSet<TaskDataModel> Tasks { get; set; }
+        public DbSet<BackupTasks> BackupTasks { get; set; }
     }
 }

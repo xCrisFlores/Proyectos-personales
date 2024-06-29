@@ -9,6 +9,9 @@ import { useTaskContext } from '../TaskContext';
 
 function Dashboard() {
   const { tasks, setTasks } = useTaskContext();
+  const [showAlert, setShowAlert] = useState(false); 
+  const [deletedTaskId, setDeletedTaskId] = useState(null); 
+
 
   const fetchTasks = async () => {
     try {
@@ -55,7 +58,29 @@ function Dashboard() {
     }
   };
 
+  const handleBackupTask = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:5074/api/task/backup/${id}`, {
+            method: 'POST',
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to backup task');
+        }
+
+        const data = await response.json();
+        console.log(data.message);
+        // Aquí puedes actualizar el estado o hacer cualquier otra acción necesaria
+    } catch (error) {
+        console.error('Error backing up task:', error);
+    }
+};
+
+
   const handleDeleteTask = async (id) => {
+
+    var del = id;
     try {
       const response = await fetch(`http://localhost:5074/api/task/${id}`, {
         method: 'DELETE',
@@ -64,10 +89,10 @@ function Dashboard() {
       if (!response.ok) {
         throw new Error('Failed to delete task');
       }
-
-      window.alert('¡La tarea se ha eliminado correctamente!');
-
+      setDeletedTaskId(del);
+      setShowAlert(true); 
       fetchTasks();
+    
     } catch (error) {
       console.error('Error deleting task:', error);
     }
@@ -81,14 +106,42 @@ function Dashboard() {
   return (
     <div style={{ marginBottom: '500px' }}>
       <div className='title_div'>
-        <p style={{ fontFamily: 'helvetica', fontSize: '3em' }}>TODO APP</p>
+        <p style={{ fontFamily: 'helvetica', fontSize: '5em' }}>TO-DO APP</p>
       </div>
+
+      <div>
+        {tasks.map(task => (
+            <table>
+            <tr className='trs'>
+              <th key={task.id}></th>
+            </tr>
+            </table>
+        ))}
+      </div>
+
+      {showAlert && (
+        <div className='alert_container'>
+          <p className='primary_lbl'>¡Se eliminó una tarea!</p>
+          <button onClick={() => handleBackupTask(deletedTaskId)} className='form_btn'>
+            Recuperar tarea
+          </button>
+          <button onClick={() => setShowAlert(false)} className='form_btn'>
+            Cerrar
+          </button>
+        </div>
+      )}
+
+
       <div className="tasks-container">
         {tasks.map(task => (
           <div key={task.id} className="task">
             <p className='task_title'>{task.title}</p>
             <p className='primary_lbl'>{task.description}</p>
+            <p className='primary_lbl'>Tipo de tarea: {task.tipo === 2 ? 'Programacion': 'Ejercicio'}</p>
             <p className='primary_lbl'>{task.isCompleted ? 'Completada' : 'No completada'}</p>
+            <p className='primary_lbl'>
+              Creada el día: {task.createdAt.split('T')[0]}
+            </p>
             <div className="btn_div">
               <button className="primary_btn" onClick={() => handleCompleteTask(task.id)}>
                 <img

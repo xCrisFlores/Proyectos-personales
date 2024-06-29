@@ -9,5 +9,6 @@ namespace todo_api.Models
         public string Description { get; set; }
         public int IsCompleted { get; set; }
         public DateTime CreatedAt { get; set; }
+        public int tipo { get; set; }
     }
 }
